@@ -1,11 +1,11 @@
 from math import inf
 
-def dijkstra(grid):
+def dijkstra(grid, src, dest):
     Q = grid.get_nodes()
     dist = {node : inf for node in Q}
     prev = {node : None for node in Q}
 
-    dist[grid.src] = 0
+    dist[src] = 0
 
     while Q:
         u = min(Q, key = dist.__getitem__)
@@ -17,8 +17,8 @@ def dijkstra(grid):
                 dist[v] = alt
                 prev[v] = u
 
-    path = [grid.dest]
-    cur = grid.dest
+    path = [dest]
+    cur = dest
 
     while prev[cur]:
         path.append(prev[cur])

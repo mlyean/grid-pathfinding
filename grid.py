@@ -2,13 +2,10 @@ from itertools import product
 
 class Grid(object):
 
-    def __init__(self, i, j, src, dest, obstacles):
+    def __init__(self, i, j, obstacles = []):
         self.i = i
         self.j = j
         self.grid = [[0] * i for _ in range(j)]
-
-        self.src = src
-        self.dest = dest
 
         self.obstacles = obstacles
 
@@ -26,9 +23,6 @@ class Grid(object):
 
         for obstacle in self.obstacles:
             arr[obstacle[0]][obstacle[1]] = "X"
-
-        arr[self.src[0]][self.src[1]] = "S"
-        arr[self.dest[0]][self.dest[1]] = "E"
 
         return arr
 
